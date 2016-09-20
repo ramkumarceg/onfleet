@@ -3,8 +3,8 @@ module Onfleet
     module Get
       module ClassMethods
         def get id, params={}
-          api_url = "#{self.api_url}/#{id}#{params.to_query}"
-          response  = Onfleet.request(api_url, :get)
+          api_url = "#{self.api_url}/#{id}"
+          response  = Onfleet.request(api_url, :get, params)
           Util.constantize("#{self}").new(response)
         end
       end
